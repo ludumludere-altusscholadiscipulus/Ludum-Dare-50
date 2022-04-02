@@ -46,7 +46,7 @@ func set_is_casting(cast : bool) -> void:
 
 func appear():
 	$Tween.stop_all()
-	$Tween.interpolate_property(line,"width",0,10.0,0.2)
+	$Tween.interpolate_property(line,"width",0,10.0,0.1)
 	$Tween.start()
 	
 func disappear():
