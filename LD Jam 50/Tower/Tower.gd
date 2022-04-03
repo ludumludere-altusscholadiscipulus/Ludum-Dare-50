@@ -6,10 +6,9 @@ var charge_power = 0
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _physics_process(delta):
+	if charge_power >= 100: #LOSE
+		pass
 
 
 func _on_Tower_body_entered(body):

@@ -1,11 +1,29 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Placeholder.png" type="Texture" id=1]
 [ext_resource path="res://Laser/LaserRayCast.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
+[ext_resource path="res://Player/Camera.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "blinking"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Placeholder:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
@@ -18,3 +36,12 @@ shape = SubResource( 1 )
 
 [node name="RayCast2D" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/blinking = SubResource( 2 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

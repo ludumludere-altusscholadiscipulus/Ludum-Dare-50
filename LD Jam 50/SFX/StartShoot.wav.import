@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/StartShoot.wav-0045503a8c6dd237e6fd188bee46d866.sample"
+
+[deps]
+
+source_file="res://SFX/StartShoot.wav"
+dest_files=[ "res://.import/StartShoot.wav-0045503a8c6dd237e6fd188bee46d866.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

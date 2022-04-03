@@ -5,20 +5,39 @@ onready var cast_particle = $CastingParticles
 onready var collide_particle = $CollisionParticles
 onready var beam_particle = $BeamParticles
 
+onready var camera = get_parent().get_node("Camera2D")
+
 var is_casting := false setget set_is_casting
+var ammo = 1000
 
 func _ready():
 	set_physics_process(false)
 	line.points[1] = Vector2.ZERO
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		self.is_casting = event.pressed
+	if ammo > 0:
+		if event.is_action_pressed("shoot"):
+			self.is_casting = true
+			camera.shake(0.1,100,10)
+		if event.is_action_released("shoot"):
+			self.is_casting = false
+	else:
+		if is_casting:
+			self.is_casting = false
 
 func _physics_process(delta : float) -> void:
+	if ammo >= 1000:
+		ammo = 1000
+	if ammo <= 0:
+		ammo = 0
+		
 	var cast_point := cast_to
 	force_raycast_update()
 	collide_particle.emitting = is_colliding()
+	
+	if is_casting:
+		ammo -= 1
+	
 	if is_colliding():
 		cast_point = to_local(get_collision_point())
 		collide_particle.global_rotation = get_collision_normal().angle()

@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
 export (int) var speed = 200
+var HP = 10
+var invincible : bool = false
 
+onready var animationplayer = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -24,4 +27,14 @@ func _physics_process(delta):
 	rotation = get_global_mouse_position().angle_to_point(position)
 	get_input()
 	velocity = move_and_slide(velocity)
+	
+	if HP <= 0:
+		pass
 
+func hurt():
+	animationplayer.play("blinking")
+	invincible = true
+	HP -= 1
+	yield(get_tree().create_timer(1.0), "timeout")
+	animationplayer.stop()
+	invincible = false

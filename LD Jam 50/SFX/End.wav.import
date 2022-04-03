@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/End.wav-453f1096b4110cbeb21c97803d2f7dcb.sample"
+
+[deps]
+
+source_file="res://SFX/End.wav"
+dest_files=[ "res://.import/End.wav-453f1096b4110cbeb21c97803d2f7dcb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

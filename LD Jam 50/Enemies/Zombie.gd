@@ -6,7 +6,7 @@ onready var raycast = $RayCast2D
 
 var player = null
 var tower = null
-var HP = 100
+var HP = 75
 var velocity : Vector2
 
 func _ready():
@@ -15,7 +15,6 @@ func _ready():
 	set_tower(get_parent().get_node("Tower"))
 
 func _physics_process(delta):
-	print(HP)
 	if player == null:
 		return
 	var distance_to_player = global_position.distance_to(player.global_position)
@@ -32,8 +31,8 @@ func _physics_process(delta):
 	
 	if raycast.is_colliding():
 		var coll = raycast.get_collider()
-		if coll.name == "Player":
-			pass
+		if coll.name == "Player" and !coll.invincible:
+			coll.hurt()
 	
 	if HP <= 0 :
 		queue_free()
