@@ -9,7 +9,7 @@ const zombie = preload("res://Enemies/Zombie.tscn")
 
 func _ready():
 	randomize()
-	number = randi() % 3 + 2
+	number = randi() % 3 + 3
 	delay.start()
 
 func _on_RestartSpawningTimer_timeout():

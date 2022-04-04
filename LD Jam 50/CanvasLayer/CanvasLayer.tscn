@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://CanvasLayer/HeartIcon.png" type="Texture" id=1]
 [ext_resource path="res://CanvasLayer/Canvas.gd" type="Script" id=2]
@@ -71,6 +71,22 @@ border_color = Color( 1, 1, 1, 0 )
 ProgressBar/styles/bg = SubResource( 9 )
 ProgressBar/styles/fg = SubResource( 10 )
 
+[sub_resource type="Animation" id=12]
+resource_name = "typewriter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 2 )
 
@@ -110,3 +126,17 @@ max_value = 80.0
 step = 1.0
 value = 50.0
 percent_visible = false
+
+[node name="Label" type="Label" parent="."]
+margin_left = 299.0
+margin_top = 16.0
+margin_right = 737.0
+margin_bottom = 58.0
+text = "25% Completed!"
+align = 1
+valign = 1
+percent_visible = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Label")
+anims/typewriter = SubResource( 12 )

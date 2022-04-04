@@ -13,6 +13,30 @@ radius = 16.0
 resource_name = "blinking"
 length = 0.2
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpaceMarineUp-legs:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SpaceMarineUp-body:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 5 )
@@ -85,7 +109,7 @@ anims/blinking = SubResource( 2 )
 [node name="SpaceMarineUp-legs" type="AnimatedSprite" parent="."]
 rotation = 4.71239
 frames = SubResource( 14 )
-frame = 10
+frame = 2
 playing = true
 
 [node name="SpaceMarineUp-body" type="Sprite" parent="."]
