@@ -6,7 +6,7 @@ onready var raycast = $RayCast2D
 
 var player = null
 var tower = null
-var HP = 75
+var HP = 100
 var velocity : Vector2
 
 func _ready():

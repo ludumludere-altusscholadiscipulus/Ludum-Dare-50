@@ -9,18 +9,23 @@ onready var camera = get_parent().get_node("Camera2D")
 
 var is_casting := false setget set_is_casting
 var ammo = 1000
+var shoot : bool = true
 
 func _ready():
 	set_physics_process(false)
 	line.points[1] = Vector2.ZERO
 
 func _unhandled_input(event):
-	if ammo > 0:
-		if event.is_action_pressed("shoot"):
-			self.is_casting = true
-			camera.shake(0.1,100,10)
-		if event.is_action_released("shoot"):
-			self.is_casting = false
+	if shoot:
+		if ammo > 0:
+			if event.is_action_pressed("shoot"):
+				self.is_casting = true
+				camera.shake(0.1,100,10)
+			if event.is_action_released("shoot"):
+				self.is_casting = false
+		else:
+			if is_casting:
+				self.is_casting = false
 	else:
 		if is_casting:
 			self.is_casting = false
@@ -45,7 +50,7 @@ func _physics_process(delta : float) -> void:
 		
 		var coll = get_collider()
 		if coll.is_in_group("zombies"):
-			coll.HP -= 1
+			coll.HP -= 2
 		
 	line.points[1] = cast_point
 	beam_particle.position = cast_point * 0.5
