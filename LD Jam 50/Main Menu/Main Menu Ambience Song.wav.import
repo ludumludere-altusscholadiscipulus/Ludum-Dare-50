@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Main Menu Ambience Song.wav-9e2ed554e82a62686d2b3c1487c8713c.sample"
+
+[deps]
+
+source_file="res://Main Menu/Main Menu Ambience Song.wav"
+dest_files=[ "res://.import/Main Menu Ambience Song.wav-9e2ed554e82a62686d2b3c1487c8713c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

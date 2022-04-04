@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Placeholder.png" type="Texture" id=1]
+[ext_resource path="res://Player/Space_marine_UP-body.png" type="Texture" id=1]
 [ext_resource path="res://Laser/LaserRayCast.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.gd" type="Script" id=3]
 [ext_resource path="res://Player/Camera.gd" type="Script" id=4]
+[ext_resource path="res://Player/Space_marine_LOW-body.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -12,30 +13,67 @@ radius = 16.0
 resource_name = "blinking"
 length = 0.2
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Placeholder:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 11.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 3 )
-
-[node name="Placeholder" type="Sprite" parent="."]
-texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="RayCast2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 16, 0 )
+position = Vector2( 16, 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -44,4 +82,12 @@ script = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/blinking = SubResource( 2 )
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="SpaceMarineUp-legs" type="AnimatedSprite" parent="."]
+rotation = 4.71239
+frames = SubResource( 14 )
+frame = 10
+playing = true
+
+[node name="SpaceMarineUp-body" type="Sprite" parent="."]
+rotation = 4.71239
+texture = ExtResource( 1 )

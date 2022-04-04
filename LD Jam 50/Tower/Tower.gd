@@ -7,8 +7,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
-	if charge_power >= 100: #LOSE
-		pass
+	pass
 
 
 func _on_Tower_body_entered(body):

@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_TextureButton_pressed(): #PlayGame
-	get_tree().change_scene("res://Test World.tscn")
+	get_tree().change_scene("res://Game.tscn")
 
 func _on_TextureButton2_pressed():
 	pass # Replace with function body.

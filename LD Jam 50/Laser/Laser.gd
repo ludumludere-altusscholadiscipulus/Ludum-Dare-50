@@ -11,6 +11,10 @@ var is_casting := false setget set_is_casting
 var ammo = 1000
 var shoot : bool = true
 
+const sfx_start = preload("res://SFX/StartShoot.wav")
+const sfx_shoot = preload("res://SFX/Shoot.wav")
+const sfx_stop = preload("res://SFX/End.wav")
+
 func _ready():
 	set_physics_process(false)
 	line.points[1] = Vector2.ZERO
@@ -70,10 +74,20 @@ func set_is_casting(cast : bool) -> void:
 
 func appear():
 	$Tween.stop_all()
+	$AudioStreamPlayer2D.stream = sfx_start
+	$AudioStreamPlayer2D.play()
 	$Tween.interpolate_property(line,"width",0,10.0,0.1)
 	$Tween.start()
 	
 func disappear():
 	$Tween.stop_all()
+	$AudioStreamPlayer2D.stream = sfx_stop
+	$AudioStreamPlayer2D.play()
 	$Tween.interpolate_property(line,"width",10.0,0,0.1)
 	$Tween.start()
+
+
+func _on_AudioStreamPlayer2D_finished():
+	if $AudioStreamPlayer2D.stream == sfx_start:
+		$AudioStreamPlayer2D.stream = sfx_shoot
+		$AudioStreamPlayer2D.play()

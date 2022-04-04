@@ -27,8 +27,10 @@ func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 	
-	if HP <= 0:
-		pass
+	if velocity == Vector2.ZERO:
+		$"SpaceMarineUp-legs".stop()
+	else:
+		$"SpaceMarineUp-legs".play()
 
 func hurt():
 	animationplayer.play("blinking")

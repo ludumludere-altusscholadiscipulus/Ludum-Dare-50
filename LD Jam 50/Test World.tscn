@@ -8,25 +8,25 @@
 [ext_resource path="res://FloorPlaceholder.png" type="Texture" id=6]
 
 [sub_resource type="SegmentShape2D" id=1]
-a = Vector2( -3200, 3200 )
-b = Vector2( 3200, 3200 )
+a = Vector2( -6400, 6400 )
+b = Vector2( 6400, 6400 )
 
 [sub_resource type="SegmentShape2D" id=2]
-a = Vector2( -3200, 3200 )
-b = Vector2( -3200, -3200 )
+a = Vector2( -6400, 6400 )
+b = Vector2( -6400, -6400 )
 
 [sub_resource type="SegmentShape2D" id=3]
-a = Vector2( -3200, 3200 )
-b = Vector2( 3200, -3200 )
+a = Vector2( -6400, -6400 )
+b = Vector2( 6400, -6400 )
 
 [sub_resource type="SegmentShape2D" id=4]
-a = Vector2( 3200, -3200 )
-b = Vector2( 3200, 3200 )
+a = Vector2( 6400, -6400 )
+b = Vector2( 6400, 6400 )
 
 [node name="Game" type="Node2D"]
 
 [node name="FloorPlaceholder" type="Sprite" parent="."]
-scale = Vector2( 25, 25 )
+scale = Vector2( 12.5, 12.5 )
 texture = ExtResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="FloorPlaceholder"]
