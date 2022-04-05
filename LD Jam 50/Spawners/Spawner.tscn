@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Spawners/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://Spawners/Spawner_point.png" type="Texture" id=2]
 
 [node name="Spawner" type="Position2D"]
 script = ExtResource( 1 )
@@ -10,6 +11,10 @@ wait_time = 10.0
 
 [node name="DelaySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="SpawnerPoint" type="Sprite" parent="."]
+position = Vector2( -1, -1 )
+texture = ExtResource( 2 )
 
 [connection signal="timeout" from="RestartSpawningTimer" to="." method="_on_RestartSpawningTimer_timeout"]
 [connection signal="timeout" from="DelaySpawnTimer" to="." method="_on_DelaySpawnTimer_timeout"]

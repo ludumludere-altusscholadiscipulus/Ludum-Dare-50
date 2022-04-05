@@ -3,6 +3,7 @@ extends Area2D
 onready var laser = get_parent().get_node("Player/RayCast2D")
 
 onready var barrier = $StaticBody2D/CollisionShape2D
+onready var barrier_sprite = $Barrier
 
 var charge : bool
 
@@ -16,6 +17,7 @@ func _physics_process(delta):
 	
 	if get_parent().check4:
 		barrier.disabled = true
+		barrier_sprite.visible = false
 
 
 func _on_Charging_Station_body_entered(body):

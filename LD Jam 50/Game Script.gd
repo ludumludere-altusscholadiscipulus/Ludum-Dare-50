@@ -15,18 +15,18 @@ func _ready():
 
 func _physics_process(delta):
 	if player.HP <= 0 or tower.charge_power >= 80: #LOSE SCRIPT
-		pass
+		Final.win = false
 		
 	if $"Charging Station/StaticBody2D/CollisionShape2D".disabled and $"Charging Station".charge: # WIN CONDITION
-		pass
+		Final.win = true
 		
-	if timer.time_left <= 225 and !check1:
+	if timer.time_left <= 135 and !check1:
 		check1 = true
 		canvas.percentage_25()
-	if timer.time_left <= 150 and !check2:
+	if timer.time_left <= 90 and !check2:
 		check2 = true
 		canvas.percentage_50()
-	if timer.time_left <= 75 and !check3:
+	if timer.time_left <= 45 and !check3:
 		check3 = true
 		canvas.percentage_75()
 
