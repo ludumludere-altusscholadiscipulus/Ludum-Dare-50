@@ -16,9 +16,11 @@ func _ready():
 func _physics_process(delta):
 	if player.HP <= 0 or tower.charge_power >= 80: #LOSE SCRIPT
 		Final.win = false
+		get_tree().change_scene("res://Final Result/Cutscene.tscn")
 		
 	if $"Charging Station/StaticBody2D/CollisionShape2D".disabled and $"Charging Station".charge: # WIN CONDITION
 		Final.win = true
+		get_tree().change_scene("res://Final Result/Cutscene.tscn")
 		
 	if timer.time_left <= 135 and !check1:
 		check1 = true
